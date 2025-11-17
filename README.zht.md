@@ -1,3 +1,5 @@
+[English](https://github.com/Ching-bit/Attributes.Avalonia/blob/main/README.md) | 中文
+
 # 說明
 這是一個使用特性（Attribute）來簡化Avalonia的屬性定義的簡單項目。
 

@@ -1,3 +1,5 @@
+English | [中文](https://github.com/Ching-bit/Attributes.Avalonia/blob/main/README.zht.md)
+
 # Description
 This is a simple project using attributes to simplify the property definitions of Avalonia.
 
