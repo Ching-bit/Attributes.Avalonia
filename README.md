@@ -22,7 +22,7 @@ public partial class MyView : UserControl
         set => SetValue(MyMessageProperty, value);
     }
     public static readonly StyledProperty<string> MyMessageProperty =
-        AvaloniaProperty.Register<MainWindow, string>(nameof(MyMessage));
+        AvaloniaProperty.Register<MyView, string>(nameof(MyMessage));
 }
 ```
 
@@ -44,6 +44,6 @@ public partial class MyView : UserControl
         set => SetAndRaise(MyMessageProperty, ref _myMessage, value);
     }
     private string _myMessage;
-    public static readonly DirectProperty<MainWindow, string> MyMessageProperty =
-        AvaloniaProperty.RegisterDirect<MainWindow, string>(nameof(MyMessage), o => o.MyMessage, (o, v) => o.MyMessage = v);
+    public static readonly DirectProperty<MyView, string> MyMessageProperty =
+        AvaloniaProperty.RegisterDirect<MyView, string>(nameof(MyMessage), o => o.MyMessage, (o, v) => o.MyMessage = v);
 }
