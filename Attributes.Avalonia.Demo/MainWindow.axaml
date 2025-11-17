@@ -1,0 +1,36 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="Attributes.Avalonia.Demo.MainWindow"
+        xmlns:local="clr-namespace:Attributes.Avalonia.Demo"
+        Title="Attributes.Avalonia.Demo"
+        x:Name="This">
+
+    <StackPanel>
+        <HeaderedContentControl Header="StyledProperty int">
+            <TextBox Text="{Binding ElementName=This, Path=MyStyledNumber}"/>
+        </HeaderedContentControl>
+        <HeaderedContentControl Header="StyledProperty string">
+            <TextBox Text="{Binding ElementName=This, Path=MyStyledString}"/>
+        </HeaderedContentControl>
+        <HeaderedContentControl Header="StyledProperty class">
+            <TextBox Text="{Binding ElementName=This, Path=MyStyledObj.Value}"/>
+        </HeaderedContentControl>
+        <HeaderedContentControl Header="DirectProperty int">
+            <TextBox Text="{Binding ElementName=This, Path=MyDirectNumber}"/>
+        </HeaderedContentControl>
+        <HeaderedContentControl Header="DirectProperty string">
+            <TextBox Text="{Binding ElementName=This, Path=MyDirectString}"/>
+        </HeaderedContentControl>
+        <HeaderedContentControl Header="DirectProperty class">
+            <TextBox Text="{Binding ElementName=This, Path=MyDirectObj.Value}"/>
+        </HeaderedContentControl>
+        
+        
+        <Button Content="Add" Click="Button_OnClick"
+                Width="120" Height="30" Margin="5"/>
+    </StackPanel>
+    
+</Window>
