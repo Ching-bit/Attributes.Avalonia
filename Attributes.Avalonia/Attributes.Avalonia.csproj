@@ -5,10 +5,23 @@
         <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
         <NoPackageAnalysis>True</NoPackageAnalysis>
         <EnforceExtendedAnalyzerRules>true</EnforceExtendedAnalyzerRules>
+
+        <PackageId>Attributes.Avalonia</PackageId>
+        <Version>1.0.1</Version>
+        <Authors>QingyunWu</Authors>
+        <Company/>
+        <Description>A project using attributes to simplify the property definitions of Avalonia</Description>
+        <PackageTags>avalonia;sourcegenerator;mvvm</PackageTags>
+        <RepositoryUrl>https://github.com/Ching-bit/Attributes.Avalonia</RepositoryUrl>
+        <PackageLicenseFile>LICENSE</PackageLicenseFile>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
     </PropertyGroup>
 
     <ItemGroup>
       <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.11.0" />
+      <None Include="..\LICENSE" Pack="true" PackagePath="" />
+      <None Include="..\README.md" Pack="true" PackagePath="" />
+      <None Include="$(OutputPath)\Attributes.Avalonia.dll" Pack="true" PackagePath="analyzers/dotnet/cs" />
     </ItemGroup>
 
 </Project>
