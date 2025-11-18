@@ -7,7 +7,7 @@
         <EnforceExtendedAnalyzerRules>true</EnforceExtendedAnalyzerRules>
 
         <PackageId>Attributes.Avalonia</PackageId>
-        <Version>1.0.1</Version>
+        <Version>1.0.2</Version>
         <Authors>QingyunWu</Authors>
         <Company/>
         <Description>A project using attributes to simplify the property definitions of Avalonia</Description>
