@@ -1,0 +1,11 @@
+D:\Develop\Workspace\UniFrw\my-open-source\Attributes.Avalonia\Attributes.Avalonia\bin\Debug\netstandard2.0\Attributes.Avalonia.deps.json
+D:\Develop\Workspace\UniFrw\my-open-source\Attributes.Avalonia\Attributes.Avalonia\bin\Debug\netstandard2.0\Attributes.Avalonia.dll
+D:\Develop\Workspace\UniFrw\my-open-source\Attributes.Avalonia\Attributes.Avalonia\bin\Debug\netstandard2.0\Attributes.Avalonia.pdb
+D:\Develop\Workspace\UniFrw\my-open-source\Attributes.Avalonia\Attributes.Avalonia\obj\Debug\netstandard2.0\Attributes.Avalonia.csproj.AssemblyReference.cache
+D:\Develop\Workspace\UniFrw\my-open-source\Attributes.Avalonia\Attributes.Avalonia\obj\Debug\netstandard2.0\Attributes.Avalonia.GeneratedMSBuildEditorConfig.editorconfig
+D:\Develop\Workspace\UniFrw\my-open-source\Attributes.Avalonia\Attributes.Avalonia\obj\Debug\netstandard2.0\Attributes.Avalonia.AssemblyInfoInputs.cache
+D:\Develop\Workspace\UniFrw\my-open-source\Attributes.Avalonia\Attributes.Avalonia\obj\Debug\netstandard2.0\Attributes.Avalonia.AssemblyInfo.cs
+D:\Develop\Workspace\UniFrw\my-open-source\Attributes.Avalonia\Attributes.Avalonia\obj\Debug\netstandard2.0\Attributes.Avalonia.csproj.CoreCompileInputs.cache
+D:\Develop\Workspace\UniFrw\my-open-source\Attributes.Avalonia\Attributes.Avalonia\obj\Debug\netstandard2.0\Attributes.Avalonia.sourcelink.json
+D:\Develop\Workspace\UniFrw\my-open-source\Attributes.Avalonia\Attributes.Avalonia\obj\Debug\netstandard2.0\Attributes.Avalonia.dll
+D:\Develop\Workspace\UniFrw\my-open-source\Attributes.Avalonia\Attributes.Avalonia\obj\Debug\netstandard2.0\Attributes.Avalonia.pdb
