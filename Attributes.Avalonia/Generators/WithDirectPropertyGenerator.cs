@@ -6,21 +6,19 @@ using Microsoft.CodeAnalysis.CSharp;
 namespace Attributes.Avalonia
 {
     [Generator]
-    internal class WithDirectPropertyGeneratorBase : GeneratorBase<WithDirectPropertyAttribute>
+    internal class WithDirectPropertyGenerator : GeneratorBase<WithDirectPropertyAttribute>
     {
         protected override string GenerateCodeOnClass(string namespaceName, string className, IPropertySymbol[] props, IEnumerable<AttributeData> attributes)
         {
             StringBuilder sb = new StringBuilder();
             sb.Append($@"
-using Avalonia;
-
 namespace {namespaceName}
 {{
     partial class {className}
     {{");
             foreach (AttributeData attribute in attributes)
             {
-                string propertyType = ((INamedTypeSymbol)attribute.ConstructorArguments[0].Value)?.ToDisplayString();
+                string propertyType = StringHelper.ToGlobalFullName(((INamedTypeSymbol)attribute.ConstructorArguments[0].Value)?.ToDisplayString());
                 string propertyName = StringHelper.ToCamel((string)attribute.ConstructorArguments[1].Value);
                 string memberName = StringHelper.ToLowerCamel(propertyName, "_");
                 string defaultValue = attribute.ConstructorArguments[2].ToCSharpString();
@@ -40,8 +38,8 @@ namespace {namespaceName}
             set => SetAndRaise({propertyName}Property, ref {memberName}, value);
         }}
         private {propertyType} {memberName}{("null" == defaultValue ? string.Empty : $" = {defaultValue}")};
-        public static readonly DirectProperty<{className}, {propertyType}> {propertyName}Property =
-            AvaloniaProperty.RegisterDirect<{className}, {propertyType}>(nameof({propertyName}), o => o.{propertyName}, (o, v) => o.{propertyName} = v{("null" == defaultValue ? string.Empty : $", unsetValue: {defaultValue}")}, enableDataValidation: {enableDataValidation});
+        public static readonly global::Avalonia.DirectProperty<{className}, {propertyType}> {propertyName}Property =
+            global::Avalonia.AvaloniaProperty.RegisterDirect<{className}, {propertyType}>(nameof({propertyName}), o => o.{propertyName}, (o, v) => o.{propertyName} = v{("null" == defaultValue ? string.Empty : $", unsetValue: {defaultValue}")}, enableDataValidation: {enableDataValidation});
 ");
             }
             

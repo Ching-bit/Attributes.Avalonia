@@ -8,7 +8,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Attributes.Avalonia
 {
-    internal abstract class CommonGenerator<T> : IIncrementalGenerator where T : Attribute
+    internal abstract class GeneratorBase<T> : IIncrementalGenerator where T : Attribute
     {
         public void Initialize(IncrementalGeneratorInitializationContext context)
         {

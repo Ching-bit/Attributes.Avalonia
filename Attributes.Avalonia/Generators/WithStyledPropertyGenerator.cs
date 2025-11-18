@@ -6,21 +6,19 @@ using Microsoft.CodeAnalysis.CSharp;
 namespace Attributes.Avalonia
 {
     [Generator]
-    internal class WithStyledPropertyGeneratorBase : GeneratorBase<WithStyledPropertyAttribute>
+    internal class WithStyledPropertyGenerator : GeneratorBase<WithStyledPropertyAttribute>
     {
         protected override string GenerateCodeOnClass(string namespaceName, string className, IPropertySymbol[] props, IEnumerable<AttributeData> attributes)
         {
             StringBuilder sb = new StringBuilder();
             sb.Append($@"
-using Avalonia;
-
 namespace {namespaceName}
 {{
     partial class {className}
     {{");
             foreach (AttributeData attribute in attributes)
             {
-                string propertyType = ((INamedTypeSymbol)attribute.ConstructorArguments[0].Value)?.ToDisplayString();
+                string propertyType = StringHelper.ToGlobalFullName(((INamedTypeSymbol)attribute.ConstructorArguments[0].Value)?.ToDisplayString());
                 string propertyName = StringHelper.ToCamel((string)attribute.ConstructorArguments[1].Value);
                 string defaultValue = attribute.ConstructorArguments[2].ToCSharpString();
                 string inherits = attribute.ConstructorArguments[3].ToCSharpString();
@@ -39,8 +37,8 @@ namespace {namespaceName}
             get => GetValue({propertyName}Property);
             set => SetValue({propertyName}Property, value);
         }}
-        public static readonly StyledProperty<{propertyType}> {propertyName}Property =
-            AvaloniaProperty.Register<{className}, {propertyType}>(nameof({propertyName}){("null" == defaultValue ? string.Empty : $", defaultValue: {defaultValue}")}, inherits: {inherits}, enableDataValidation: {enableDataValidation});
+        public static readonly global::Avalonia.StyledProperty<{propertyType}> {propertyName}Property =
+            global::Avalonia.AvaloniaProperty.Register<{className}, {propertyType}>(nameof({propertyName}){("null" == defaultValue ? string.Empty : $", defaultValue: {defaultValue}")}, inherits: {inherits}, enableDataValidation: {enableDataValidation});
 ");
             }
             

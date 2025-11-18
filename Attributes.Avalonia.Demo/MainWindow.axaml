@@ -2,14 +2,13 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-        x:Class="Attributes.Avalonia.Demo.MainWindow"
         xmlns:local="clr-namespace:Attributes.Avalonia.Demo"
-        Title="Attributes.Avalonia.Demo"
+        x:Class="Attributes.Avalonia.Demo.MainWindow"
+        Title="Attributes.Avalonia.Demo" Width="400" Height="440"
         x:Name="This">
 
     <StackPanel>
-        <HeaderedContentControl Header="StyledProperty int">
+        <HeaderedContentControl Header="StyledProperty number">
             <TextBox Text="{Binding ElementName=This, Path=MyStyledNumber}"/>
         </HeaderedContentControl>
         <HeaderedContentControl Header="StyledProperty string">
@@ -18,7 +17,7 @@
         <HeaderedContentControl Header="StyledProperty class">
             <TextBox Text="{Binding ElementName=This, Path=MyStyledObj.Value}"/>
         </HeaderedContentControl>
-        <HeaderedContentControl Header="DirectProperty int">
+        <HeaderedContentControl Header="DirectProperty number">
             <TextBox Text="{Binding ElementName=This, Path=MyDirectNumber}"/>
         </HeaderedContentControl>
         <HeaderedContentControl Header="DirectProperty string">
@@ -27,7 +26,9 @@
         <HeaderedContentControl Header="DirectProperty class">
             <TextBox Text="{Binding ElementName=This, Path=MyDirectObj.Value}"/>
         </HeaderedContentControl>
-        
+        <HeaderedContentControl Header="AttachedProperty: you can only input numbers here.">
+            <TextBox local:TextBoxHelper.OnlyNumbers="True"/>
+        </HeaderedContentControl>
         
         <Button Content="Add" Click="Button_OnClick"
                 Width="120" Height="30" Margin="5"/>

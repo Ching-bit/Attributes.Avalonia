@@ -1,16 +1,15 @@
-using System;
-using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
 
 namespace Attributes.Avalonia.Demo;
 
 [WithStyledProperty(typeof(int), "MyStyledNumber", 5, false, false)]
-[WithStyledProperty(typeof(string), "MyStyledString", "my string")]
-[WithStyledProperty(typeof(MyClass), "MyStyledObj")]
+[WithStyledProperty(typeof(string), "MyStyledString", "my StyledProperty")]
+[WithStyledProperty(typeof(MyModel), "MyStyledObj")]
 [WithDirectProperty(typeof(double), "MyDirectNumber")]
-[WithDirectProperty(typeof(string), "MyDirectString")]
-[WithDirectProperty(typeof(MyClass), "MyDirectObj")]
+[WithDirectProperty(typeof(string), "MyDirectString", "my DirectProperty")]
+[WithDirectProperty(typeof(MyModel), "MyDirectObj")]
+[WithDirectProperty(typeof(string), "MyMessage")]
 public partial class MainWindow : Window
 {
     public MainWindow()
@@ -22,13 +21,14 @@ public partial class MainWindow : Window
     {
         MyStyledNumber++;
         MyStyledString += " test";
-        MyStyledObj ??= new MyClass();
+        MyStyledObj ??= new MyModel();
         MyStyledObj.Value++;
 
         MyDirectNumber++;
         MyDirectString += " test";
-        MyDirectObj ??= new MyClass();
+        MyDirectObj ??= new MyModel();
         MyDirectObj.Value++;
         
+        MyMessage = "";
     }
 }

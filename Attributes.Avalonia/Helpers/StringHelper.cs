@@ -1,3 +1,4 @@
+using System.Linq;
 using System.Text;
 
 namespace Attributes.Avalonia
@@ -44,6 +45,22 @@ namespace Attributes.Avalonia
             sb[0] = char.ToLower(sb[0]);
             sb.Replace("_", "");
             return prefix + sb;
+        }
+
+        public static string ToGlobalFullName(string typeName)
+        {
+            string[] basicTypes =
+            {
+                "bool", "byte", "sbyte", "short", "ushort", "int", "uint", "long", "ulong", "char", "float", "double",
+                "decimal", "string", "object"
+            };
+            
+            if (null == typeName || basicTypes.Any(t => t == typeName))
+            {
+                return typeName;
+            }
+
+            return "global::" + typeName;
         }
     }
 }
