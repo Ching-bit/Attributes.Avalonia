@@ -6,7 +6,7 @@ using Microsoft.CodeAnalysis.CSharp;
 namespace Attributes.Avalonia
 {
     [Generator]
-    internal class WithDirectPropertyGenerator : CommonGenerator<WithDirectPropertyAttribute>
+    internal class WithDirectPropertyGeneratorBase : GeneratorBase<WithDirectPropertyAttribute>
     {
         protected override string GenerateCodeOnClass(string namespaceName, string className, IPropertySymbol[] props, IEnumerable<AttributeData> attributes)
         {

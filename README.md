@@ -3,6 +3,9 @@ English | [中文](https://github.com/Ching-bit/Attributes.Avalonia/blob/main/RE
 # Description
 This is a simple project using attributes to simplify the property definitions of Avalonia.
 
+# Installation
+You can install **Attributes.Avalonia** via NuGet.
+
 # Usage
 1. Use **WithStyledProperty** attribute on a class to define a StyledProperty.
 ```
@@ -47,3 +50,31 @@ public partial class MyView : UserControl
     public static readonly DirectProperty<MyView, string> MyMessageProperty =
         AvaloniaProperty.RegisterDirect<MyView, string>(nameof(MyMessage), o => o.MyMessage, (o, v) => o.MyMessage = v);
 }
+```
+
+3. Use **WithAttachedProperty** attribute on a class to define a AttachedProperty.
+```
+[WithAttachedProperty(typeof(TextBox), typeof(bool), "OnlyNumbers")]
+public static partial class TextBoxHelper
+{
+
+}
+```
+which is the same with:
+```
+public static partial class TextBoxHelper
+{
+    public static readonly AttachedProperty<bool> OnlyNumbersProperty =
+                AvaloniaProperty.RegisterAttached<TextBox, bool>("OnlyNumbers", typeof(TextBoxHelper));
+
+    public static bool GetOnlyNumbers(TextBox host)
+    {
+        return host.GetValue(OnlyNumbersProperty);
+    }
+
+    public static void SetOnlyNumbers(TextBox host, bool value)
+    {
+        host.SetValue(OnlyNumbersProperty, value);
+    }
+}
+```
