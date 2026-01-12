@@ -20,13 +20,18 @@ namespace {namespaceName}
             {
                 string propertyType = StringHelper.ToGlobalFullName(((INamedTypeSymbol)attribute.ConstructorArguments[0].Value)?.ToDisplayString());
                 string propertyName = StringHelper.ToCamel((string)attribute.ConstructorArguments[1].Value);
-                string defaultValue = attribute.ConstructorArguments[2].ToCSharpString();
-                string inherits = attribute.ConstructorArguments[3].ToCSharpString();
-                string enableDataValidation = attribute.ConstructorArguments[4].ToCSharpString();
-
                 if (null == propertyType || null == propertyName)
                 {
                     continue;
+                }
+                
+                string defaultValue = attribute.ConstructorArguments[2].ToCSharpString();
+                string inherits = attribute.ConstructorArguments[3].ToCSharpString();
+                string enableDataValidation = attribute.ConstructorArguments[4].ToCSharpString();
+                bool nullable = attribute.ConstructorArguments[5].ToCSharpString().Equals("true");
+                if (nullable)
+                {
+                    propertyType += "?";
                 }
 
                 sb.Append($@"

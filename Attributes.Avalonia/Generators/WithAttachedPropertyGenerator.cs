@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Text;
 using Microsoft.CodeAnalysis;
@@ -22,12 +21,17 @@ namespace {namespaceName}
                 string hostType = StringHelper.ToGlobalFullName(((INamedTypeSymbol)attribute.ConstructorArguments[0].Value)?.ToDisplayString());
                 string propertyType = StringHelper.ToGlobalFullName(((INamedTypeSymbol)attribute.ConstructorArguments[1].Value)?.ToDisplayString());
                 string propertyName = StringHelper.ToCamel((string)attribute.ConstructorArguments[2].Value);
-                string defaultValue = attribute.ConstructorArguments[3].ToCSharpString();
-                string inherits = attribute.ConstructorArguments[4].ToCSharpString();
-
                 if (null == hostType || null == propertyType || null == propertyName)
                 {
                     continue;
+                }
+                
+                string defaultValue = attribute.ConstructorArguments[3].ToCSharpString();
+                string inherits = attribute.ConstructorArguments[4].ToCSharpString();
+                bool nullable = attribute.ConstructorArguments[5].ToCSharpString().Equals("true");
+                if (nullable)
+                {
+                    propertyType += "?";
                 }
 
                 sb.Append($@"
