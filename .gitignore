@@ -20,6 +20,8 @@ rad.json
 *.flf
 #Test results file
 TestResults.xml
+#VS folder
+.vs
 #Idea folder
 .idea
 

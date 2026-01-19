@@ -11,7 +11,7 @@ namespace Attributes.Avalonia
         protected override string GenerateCodeOnClass(string namespaceName, string className, IPropertySymbol[] props, IEnumerable<AttributeData> attributes)
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append($@"
+            sb.Append($@"#nullable enable
 namespace {namespaceName}
 {{
     partial class {className}
