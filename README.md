@@ -78,3 +78,26 @@ public static partial class TextBoxHelper
     }
 }
 ```
+
+4. Use **WithRoutedEvent** attribute on a classto define a RoutedEvent.
+```
+[WithRoutedEvent(typeof(RoutedEventArgs), "MyClick", EventRoutingStrategies.Bubble)]
+public partial class MyView : UserControl
+{
+
+}
+```
+which is the same with:
+```
+public partial class MyView : UserControl
+{
+    public static readonly RoutedEvent<RoutedEventArgs> MyClickEvent =
+        RoutedEvent.Register<MyView, RoutedEventArgs>(nameof(MyClick), RoutingStrategies.Bubble);
+
+    public event EventHandler<RoutedEventArgs> MyClick
+    {
+        add => AddHandler(MyClickEvent, value);
+        remove => RemoveHandler(MyClickEvent, value);
+    }
+}
+```

@@ -78,3 +78,26 @@ public static partial class TextBoxHelper
     }
 }
 ```
+
+4. 在類上使用 **WithRoutedEvent** 特性來定義一個路由事件。
+```
+[WithRoutedEvent(typeof(RoutedEventArgs), "MyClick", EventRoutingStrategies.Bubble)]
+public partial class MyView : UserControl
+{
+
+}
+```
+上述代碼與以下代碼效果相同：
+```
+public partial class MyView : UserControl
+{
+    public static readonly RoutedEvent<RoutedEventArgs> MyClickEvent =
+        RoutedEvent.Register<MyView, RoutedEventArgs>(nameof(MyClick), RoutingStrategies.Bubble);
+
+    public event EventHandler<RoutedEventArgs> MyClick
+    {
+        add => AddHandler(MyClickEvent, value);
+        remove => RemoveHandler(MyClickEvent, value);
+    }
+}
+```
