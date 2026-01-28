@@ -8,7 +8,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Attributes.Avalonia
 {
-    internal abstract class GeneratorBase<T> : IIncrementalGenerator where T : Attribute
+    public abstract class GeneratorBase<T> : IIncrementalGenerator where T : Attribute
     {
         public void Initialize(IncrementalGeneratorInitializationContext context)
         {
@@ -29,7 +29,7 @@ namespace Attributes.Avalonia
                 (spc, source) => GenerateCodeOnFields(source.Left, source.Right, spc, attributeFullName));
         }
 
-        private void GenerateCodeOnClasses(Compilation compilation, ImmutableArray<INamedTypeSymbol> classes,
+        private void GenerateCodeOnClasses(Compilation _, ImmutableArray<INamedTypeSymbol> classes,
             SourceProductionContext context, string attributeFullName)
         {
             foreach (var classSymbol in classes)
@@ -52,7 +52,7 @@ namespace Attributes.Avalonia
 
         protected abstract string GenerateCodeOnClass(string namespaceName, string className, IPropertySymbol[] props, IEnumerable<AttributeData> attributes);
 
-        private void GenerateCodeOnFields(Compilation compilation, ImmutableArray<IFieldSymbol> fields,
+        private void GenerateCodeOnFields(Compilation _, ImmutableArray<IFieldSymbol> fields,
             SourceProductionContext context, string attributeFullName)
         {
             foreach (IFieldSymbol field in fields)
