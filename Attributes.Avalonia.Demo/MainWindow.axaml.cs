@@ -11,7 +11,7 @@ namespace Attributes.Avalonia.Demo;
 [WithDirectProperty(typeof(string), "MyDirectString", "my DirectProperty", nullable: true)]
 [WithDirectProperty(typeof(MyModel), "MyDirectObj", nullable: true)]
 [WithDirectProperty(typeof(string), "MyMessage", "")]
-[WithRoutedEvent(typeof(RoutedEventArgs), "MyRoutedButtonClick", EventRoutingStrategies.Bubble)]
+[WithRoutedEvent(typeof(RoutedEventArgs), "MyRoutedButtonClick")]
 public partial class MainWindow : Window
 {
     public MainWindow()

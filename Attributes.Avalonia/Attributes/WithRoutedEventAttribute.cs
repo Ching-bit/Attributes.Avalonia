@@ -5,15 +5,15 @@ namespace Attributes.Avalonia
     [AttributeUsage(AttributeTargets.Class, AllowMultiple = true)]
     public sealed class WithRoutedEventAttribute : Attribute
     {
-        public WithRoutedEventAttribute(Type eventArgsType, string name, EventRoutingStrategies eventRoutingStrategy)
+        public WithRoutedEventAttribute(Type eventArgsType, string name, EventRoutingStrategies routingStrategy = EventRoutingStrategies.Bubble)
         {
             EventArgsType = eventArgsType;
             Name = name;
-            EventRoutingStrategy = eventRoutingStrategy;
+            RoutingStrategy = routingStrategy;
         }
         
         public Type EventArgsType { get; set; }
         public string Name { get; set; }
-        public EventRoutingStrategies EventRoutingStrategy { get; set; }
+        public EventRoutingStrategies RoutingStrategy { get; set; }
     }
 }
